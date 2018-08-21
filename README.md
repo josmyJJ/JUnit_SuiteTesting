@@ -1,5 +1,4 @@
 # Test suite
-# Lesson 13 - Using Database Relationships with Spring Boot - ManyToMany
 
 ## Learning Objectives
 	    * Test suite to bundle few unit test cases and run them together
