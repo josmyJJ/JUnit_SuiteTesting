@@ -36,44 +36,13 @@ public class Actor {
   public Actor() {
     Set<Movie> movies = new HashSet<>();
   }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getRealname() {
-    return realname;
-  }
-
-  public void setRealname(String realname) {
-    this.realname = realname;
-  }
-
-  public Set<Movie> getMovies() {
-    return movies;
-  }
-
-  public void setMovies(Set<Movie> movies) {
-    this.movies = movies;
   }
 }
 ```
 3. Auto generate getters and setters
   	* Right click inside the Actor class and select
     generate -> Getters and Setters
-		* Select all the fields listed and click ok
+	* Select all the fields listed and click ok
 
 4. Create a Class
     * Right click on com.example.demo and click New -> Class
@@ -96,52 +65,13 @@ public class Movie {
 
   @ManyToMany
   private Set<Actor> cast;
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public long getYear() {
-    return year;
-  }
-
-  public void setYear(long year) {
-    this.year = year;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Set<Actor> getCast() {
-    return cast;
-  }
-
-  public void setCast(Set<Actor> cast) {
-    this.cast = cast;
   }
 }
 ```  
 5. Auto generate getters and setters
   	* Right click inside the Movie class and select generate -> Getters
     and Setters
-		* Select all the fields listed and click ok
+	* Select all the fields listed and click ok
 
 
 6. Create a Repository
