@@ -90,7 +90,7 @@ public interface ActorRepository extends CrudRepository<Actor, Long>{
 ## Create unit tests
 
 7. Create a Test Class
-	  * Click on test
+	  * Click on test folder
 		* Open java folder
 		* Open com.example.demo
 		* Right click on com.example.demo and create a class called TestMovie1.java
@@ -138,7 +138,7 @@ public class TestMovie1 {
 ```
 
 8. Create a Test Class
-	  * Click on test
+	  * Click on test folder
 		* Open java folder
 		* Open com.example.demo
 		* ight click on com.example.demo and create a class called TestMovie2.java
