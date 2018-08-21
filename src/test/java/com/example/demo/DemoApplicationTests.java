@@ -9,7 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Suite.SuiteClasses({
         TestMovie1.class,
-        TestMovie2.class
+        TestMovie2.class,
+        TestMovie3.class
 })
 
 @SpringBootTest

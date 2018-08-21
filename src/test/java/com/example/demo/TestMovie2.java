@@ -18,8 +18,9 @@ public class TestMovie2 {
 
   @Autowired
   ActorRepository actorRepository;
+
   @Test
-  public void testActor1() {
+  public void findByName() {
     Actor actor1 = new Actor();
     actor1.setName("David Bullock");
     actor1.setRealname("David Mae Bullowski");
@@ -35,7 +36,8 @@ public class TestMovie2 {
     actor1.setMovies(movies1);
     actorRepository.save(actor1);
 
-    assertEquals(actorRepository.findById(2L).get().getId(), actor1.getId());
-//    assertEquals(actor1.getRealname(),  "David Mae Bullowski");
+    assertEquals(actorRepository.findByName("David Bullock").getName(), "David " +
+            "Bullock");
+
   }
 }

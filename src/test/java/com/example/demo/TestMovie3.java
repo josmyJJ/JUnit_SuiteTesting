@@ -11,30 +11,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
-public class TestMovie1 {
+public class TestMovie3 {
 
   @Autowired
   ActorRepository actorRepository;
 
   @Test
-  public void findById() {
-    Actor actor = new Actor();
-    actor.setName("Sandra Bullock");
-    actor.setRealname("Sandra Mae Bullowski");
+  public void findAllActors() {
+    Actor actor2 = new Actor();
+    actor2.setName("David Bullock");
+    actor2.setRealname("David Mae Bullowski");
 
-    Movie movie = new Movie();
-    movie.setTitle("Emoji Movie");
-    movie.setYear(2017);
-    movie.setDescription("About Emojis...");
+    Movie movie2 = new Movie();
+    movie2.setTitle("Some Movie");
+    movie2.setYear(2019);
+    movie2.setDescription("About some movie...");
 
-    Set<Movie> movies = new HashSet<Movie>();
-    movies.add(movie);
+    Set<Movie> movies2 = new HashSet<Movie>();
+    movies2.add(movie2);
 
-    actor.setMovies(movies);
-    actorRepository.save(actor);
-    assertEquals(actorRepository.findById(1L).get().getId(), actor.getId());
+    actor2.setMovies(movies2);
+    actorRepository.save(actor2);
+
+    assertEquals(actorRepository.findAllById(3L).getId(), actor2.getId());
   }
 }
