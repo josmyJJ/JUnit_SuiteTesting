@@ -93,7 +93,7 @@ public interface ActorRepository extends CrudRepository<Actor, Long>{
 	  * Click on test folder
 		* Open java folder
 		* Open com.example.demo
-		* Right click on com.example.demo and create a class called TestMovie1.java
+		* Right click on com.example.demo and create a class called TestFindById.java
 		* Edit it to look like this:
 
 ```java
@@ -111,7 +111,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
-public class TestMovie1 {
+public class TestFindById {
 
   @Autowired
   ActorRepository actorRepository;
@@ -141,7 +141,7 @@ public class TestMovie1 {
 	  * Click on test folder
 		* Open java folder
 		* Open com.example.demo
-		* ight click on com.example.demo and create a class called TestMovie2.java
+		* Right click on com.example.demo and create a class called TestFindByName.java
 		* Edit it to look like this:
 
 ```java    
@@ -159,7 +159,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
-public class TestMovie2 {
+public class TestFindByName {
 
   @Autowired
   ActorRepository actorRepository;
@@ -186,7 +186,57 @@ public class TestMovie2 {
   }
 }
 ```
-9. Create a Test Suite Class
+
+9. Create a Test Class
+	  * Click on test folder
+		* Open java folder
+		* Open com.example.demo
+		* ight click on com.example.demo and create a class called TestFindAllActors.java
+		* Edit it to look like this:
+
+```java    
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+@RunWith(SpringRunner.class)
+@DataJpaTest
+@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
+public class TestFindAllActors {
+
+  @Autowired
+  ActorRepository actorRepository;
+
+ @Test
+  public void findAllActors() {
+    Actor actor2 = new Actor();
+    actor2.setName("David Bullock");
+    actor2.setRealname("David Mae Bullowski");
+
+    Movie movie2 = new Movie();
+    movie2.setTitle("Some Movie");
+    movie2.setYear(2019);
+    movie2.setDescription("About some movie...");
+
+    Set<Movie> movies2 = new HashSet<Movie>();
+    movies2.add(movie2);
+
+    actor2.setMovies(movies2);
+    actorRepository.save(actor2);
+
+    assertEquals(actorRepository.findAllById(3L).getId(), actor2.getId());
+  }
+}
+```
+
+10. Create a Test Suite Class
 	  * Click on test folder
 		* Open java folder
 		* Open com.example.demo
@@ -201,9 +251,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-        TestMovie1.class,
-        TestMovie2.class,
-        TestMovie3.class
+        TestFindById.class,
+        TestFindByName.class,
+        TestfindAllActors.class
 })
 
 @SpringBootTest
@@ -212,7 +262,7 @@ public class TestSuite {
 }
 ```
 
-10. Run your test TestSuite
+11. Run your test TestSuite
 Right click on the TestSuite class and run TestSuite. After you run a test,
 the Run tool window will display the test runner tab with the results of
 your testing session.
